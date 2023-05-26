@@ -24,9 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
     analyticsDataTextArea.value = ++counter + "\n-------------\n"
     try {
       chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
-        const sendMe = `2 + 2`
+       const sendMe = `2 + 2`
        //  const sendMe = `window.analytics.analytics`
        // const sendMe = 'self._satellite'
+       // const sendMe = '_s'
+       // const sendMe = "_satellite._container"
+       // const sendMe = "aLaunch_isScriptLoaded"
         analyticsDataTextArea.value += "sendMe: " + sendMe + "\n"
         chrome.tabs.executeScript(tabs[0].id, { code: sendMe }, ((result) => {
           analyticsDataTextArea.value += "Got this: |" + result + "|\n"
